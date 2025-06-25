@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>AURORA</title>
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="icon" type="image/png" href="{% static 'images/auroraLogo.png' %}">
 </head>
 <body>
 {% include "myapp/loader.html" %}
@@ -12,12 +13,12 @@
   <!-- Left Side -->
   <div class="split left" onclick="navigateWithLoader('{% url 'pacific' %}')">
     <div class="text-overlay left-overlay">
-      <span class="logo-text-combo" id="test"style="margin-left:80px;">
-        <img src="{% static 'images/whiteLogo.png' %}" alt="Logo">
-        <h1 style="font-family: 'MyFont', sans-serif;">AURORA</h1>
+      <span class="logo-text-combo">
+        <img src="{% static 'images/6.png' %}" style="height: 600px;width: 600px;"alt="Logo">
+  
       </span>
     </div>
-    <img class="bg-image" src="https://rabda-entries.s3.amazonaws.com/store/2023/burger-lobster/image/34280/file/xlarge-751e8575548ef70f6e6fce905409d69e.jpeg" alt="Left Image">
+    <img class="bg-image" src="{% static 'images/bg1.jpeg' %}" alt="Left Image">
   </div>
 
   <!-- Center Logo -->
@@ -30,9 +31,9 @@
   <div class="split right" onclick="navigateWithLoader2('{% url 'podium' %}')">
     <div class="text-overlay right-overlay">
       <h4 style="font-family: 'MyFont2', sans-serif;">BISTRO</h4>
-      <h1 style="font-family: 'MyFont', sans-serif; font-size:50px;">AURORA</h1>
+      <h1 style="font-family: 'MyFont', sans-serif; font-size:85px;">AURORA</h1>
     </div>
-    <img class="bg-image" src="https://wallpaperaccess.com/full/3692914.jpg" alt="Right Image">
+    <img class="bg-image" src="{% static 'images/bg2.webp' %}" alt="Right Image">
   </div>
 </div>
 

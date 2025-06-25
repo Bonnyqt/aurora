@@ -2,161 +2,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AURORA</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" href="{% static 'images/auroraLogo.png' %}">
+  <title>BISTRO AURORA</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="{% static 'css/podium.css' %}">
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    header {
-      background-image: url('https://static.vecteezy.com/system/resources/previews/030/664/064/non_2x/charcoal-background-high-quality-free-photo.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: white;
-      padding: 40px 60px 20px;
-    }
-
+    /* Layout */
     .top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+
+.burger {
+  display: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: #af7f10;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.logo {
+  width: 200px;
+  height: auto;
+}
+    .social-icons {
       display: flex;
-      justify-content: space-between;
+      gap: 10px;
       align-items: center;
     }
 
-    .logo {
-      height: 60px;
-      width: 220px;
-    }
-
-    .social-icons {
+    nav ul {
       display: flex;
       gap: 20px;
-      font-size: 24px;
-      color: white;
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
- nav {
-  margin-top: 20px;
+    nav a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #af7f10;
+    }
+
+    .switch-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .switch-logo h1 {
+      font-style: italic;
+      font-size: 18px;
+    }
+
+    /* Sidebar & Overlay */
+   .sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  text-align: center;
+  width: 260px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9); /* <-- Updated */
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.4s ease;
+  z-index: 1000;
+  padding: 20px;
+  color: white; /* <-- Set default text color to white */
 }
 
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    .sidebar.open {
+      right: 0;
+    }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
-}
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 999;
+      display: none;
+    }
 
-nav ul li a {
-  color: white;
+    .overlay.show {
+      display: block;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 50px;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 20px;
+    }
+
+    .sidebar a {
+  color: white; /* <-- Updated */
   text-decoration: none;
-  font-size: 12px;
-  font-weight: 500;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-/* Hover underline + glow using #af7f10 */
-nav ul li a:hover {
-  color: #af7f10;
-  text-shadow: 0 0 5px #af7f10, 0 0 10px #af7f10;
-}
-
-nav ul li a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  background: #af7f10;
-  bottom: -5px;
-  left: 0;
-  transition: width 0.3s ease;
-}
-
-nav ul li a:hover::after {
-  width: 100%;
-}
-
-/* Active state using #af7f10 */
-nav ul li a.active {
-  color: #af7f10;
-  text-shadow: 0 0 8px #af7f10, 0 0 12px #af7f10;
-}
-
-nav ul li a.active::after {
-  width: 100%;
-}
-
-/* Right aligned h1 */
-nav h1 {
-  color: white;
   font-size: 18px;
-  margin: 0;
-}
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  transition: color 0.3s ease;
 }
 
-.switch-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+   
+.sidebar a:hover {
+  color: #af7f10;
+}
+
+    /* Responsive */
+    @media (max-width: 768px) {
+  .social-icons {
+    display: none;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .top-row {
+    justify-content: center;
+  }
+
+  .logo {
+    margin: 0 auto;
+  }
+}
+.sidebar-btn {
+  display: block;
+  padding: 6px 15px;  
+  font-size: 14px;
+  color: #ffffff;
+  background: transparent;
+  border: 2px solid #af7f10;
   cursor: pointer;
-  user-select: none;
-  transition: opacity 0.2s ease;
-}
-
-.switch-logo:hover {
-  opacity: 0.8;
-}
-
-.switch-logo h1 {
-  font-size: 16px;
-  color: white;
-  font-style: italic;
-  margin: 0;
+  transition: all 0.3s ease;
+  font-family: 'MyFont2', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 20px auto 0;
+  text-align: center;
 }
 
 
+.sidebar-btn:hover {
+  background-color: #8c6410;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  .book-btn:not(.sidebar-btn) {
+    display: none; /* hide the original book-btn on mobile */
+  }
+
+  .sidebar-btn {
+    display: block; /* show the sidebar version */
+  }
+}
   </style>
 </head>
 <body>
 {% include "myapp/loader.html" %}
+
 <header>
-  <!-- Top: logo left, icons right -->
   <div class="top-row">
-    <img src="{% static 'images/branding.png' %}" class="logo" alt="Logo">
-    <div class="social-icons">
+    <img src="{% static 'images/branding3.png' %}" class="logo" alt="Logo">
+    <i class="bi bi-list burger" onclick="toggleSidebar()"></i>
+    <div class="social-icons" style="color:black;">
       <i class="bi bi-facebook"></i>
       <i class="bi bi-instagram"></i>
       <i class="bi bi-tiktok"></i>
-      <button class="btn-secondary">BOOK NOW</button>
+      <button class="book-btn" style="color:black;">BOOK NOW</button>
     </div>
   </div>
 
-  <!-- Nav: below logo, left aligned -->
-  <nav>
-  <div class="nav-container">
+  <nav class="desktop-nav">
+    <div class="nav-container">
+      <ul>
+        <li><a href="" class="active">HOME</a></li>
+        <li><a href="">ABOUT</a></li>
+        <li><a href="">MENU</a></li>
+        <li><a href="">RESERVATIONS</a></li>
+        <li><a href="">GALLERY</a></li>
+        <li><a href="">UPDATES</a></li>
+        <li><a href="">CONTACT US</a></li>
+      </ul>
+      
+      <div class="switch-logo" onclick="navigateWithLoader('{% url 'pacific' %}')">
+        <h1 style="color:black;"><em>Switch to:</em></h1>
+        <img src="{% static 'images/branding4.png' %}" alt="" style="width: 130px; height: 40px;">
+      </div>
+    </div>
+  </nav>
+
+
+  <div id="sidebar" class="sidebar">
     <ul>
-      <li><a href="" class="active">HOME</a></li>
+      <li><a href="">HOME</a></li>
       <li><a href="">ABOUT</a></li>
       <li><a href="">MENU</a></li>
       <li><a href="">RESERVATIONS</a></li>
@@ -164,16 +227,185 @@ nav h1 {
       <li><a href="">UPDATES</a></li>
       <li><a href="">CONTACT US</a></li>
     </ul>
-    <div class="switch-logo" onclick="navigateWithLoader2('{% url 'podium' %}')">
-  <h1><em>Switch to:</em></h1>
-  <img src="{% static 'images/branding1.png' %}" alt="" style="width: 130px; height: 40px;">
+    <button class="book-btn sidebar-btn">BOOK NOW</button>
+    <div class="switch-logo" onclick="navigateWithLoader('{% url 'pacific' %}')">
+      <h1><em>Switch to:</em></h1>
+      <img src="{% static 'images/branding.png' %}" alt="" style="width: 130px; height: 40px;">
+    </div>
+  </div>
+
+  <!-- Overlay -->
+  <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
+  <br><hr><br>
+  <div class="carousel">
+ 
+  <div class="carousel-slide" id="carouselSlide">
+    <!-- Slide content injected here -->
+  </div>
+
+
+  <div class="dots" id="dots"></div>
+</div>
+</header>
+ <div class="arrow left" onclick="prevSlide()">&lt;</div>
+  <div class="arrow right" onclick="nextSlide()">&gt;</div>
+  
+  <div class="side-by-side">
+    <div class="image-content">
+    <img src="{% static 'images/about.png' %}" style="height:auto;width: 900px;" alt="Your image">
+  </div>
+  <div class="text-content">
+    <h1 style="font-family: 'MyFont2'; font-size: 60px;">"About"</h1><br>
+    <h2 style="font-family: 'MyFont2';">Your Title Here</h2>
+    <br>
+    <p>At Aurora, we pay tribute to the elegance and charm of classically-rooted Asian cooking, spotlighting the robust and familiar flavors you know and love. Our plates are designed to be shared—a reminder that meals are more nourishing when we gather around the table. Everyone is invited.</p>
+  <button class="view-menu-btn">MORE INFO</button>
+  </div>
 </div>
 
+
+<div class="favorites-section">
+  <h1 class="background-text" >All-Time Favorites</h1>
+
+  <div class="image-gallery">
+    <img src="{% static 'images/bg1.jpeg' %}" alt="Food 1">
+    <img src="{% static 'images/bg1.jpeg' %}" alt="Drink 1">
+    <img src="{% static 'images/bg1.jpeg' %}" alt="Food 2">
+    <img src="{% static 'images/bg1.jpeg' %}" alt="Drink 2">
+    <img src="{% static 'images/bg1.jpeg' %}" alt="Food 3">
+    <img src="{% static 'images/bg1.jpeg' %}" alt="Drink 3">
   </div>
-</nav>
+
+  <div class="button-container">
+    <button class="view-menu-btn">VIEW MENU</button>
+  </div>
+</div>
+
+<div class="testimonial" style="
+  background-color: black;
+  padding: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+">
+  <h1 style="
+    color: white;
+    font-family: 'MyFont2';
+    font-size: 30px;
+    text-align: center;
+    max-width: 900px;
+    margin-bottom: 10px;
+  ">
+    "we pay tribute to the elegance and charm of classically-rooted Asian cooking, spotlighting the robust and familiar flavors"
+  </h1>
+
+  <h5 style="
+    color: white;
+    font-family: 'MyFont2';
+    font-size: 20px;
+    text-align: center;
+    max-width: 900px;
+    margin-top: 0;
+  ">– Jon Bon Marquez</h5>
+</div>
 
 
-</header>
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('show');
+  }
+</script>
+<script>
+  const slides = [
+    {
+      title: 'Title Text Here',
+      subtitle: 'SUBTITLE TEXT HERE',
+      description: `At Aurora, we pay tribute to the elegance and charm of classically-rooted Asian cooking, spotlighting the robust and familiar flavors you know and love. Our plates are designed to be shared—a reminder that meals are more nourishing when we gather around the table. Everyone is invited.`,
+      image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1000&q=80'
+    },
+    {
+      title: 'Second Slide',
+      subtitle: 'EXPERIENCE THE FLAVOR',
+      description: `Fusion meets tradition. Discover bold bites and cozy elegance with every plate we serve.`,
+      image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1000&q=80'
+    },
+    {
+      title: 'Freshly Served',
+      subtitle: 'SEASONAL MENU',
+      description: `Our rotating seasonal menu highlights the best local ingredients for a taste that’s always fresh.`,
+      image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=1000&q=80'
+    }
+  ];
 
+  let currentIndex = 0;
+  const carouselSlide = document.getElementById('carouselSlide');
+  const dotsContainer = document.getElementById('dots');
+  let interval;
+
+  function renderSlide(index) {
+    const slide = slides[index];
+    carouselSlide.innerHTML = `
+      <div class="carousel-text">
+        <h1>${slide.title}</h1>
+        <h3>${slide.subtitle}</h3>
+        <p>${slide.description}</p>
+      </div>
+      <div class="carousel-image" style="background-image: url('${slide.image}')"></div>
+    `;
+    renderDots();
+  }
+
+  function renderDots() {
+  // If dots already exist, just update classes
+  if (dotsContainer.children.length === slides.length) {
+    Array.from(dotsContainer.children).forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+    });
+    return;
+  }
+
+  // Initial render (first time only)
+  dotsContainer.innerHTML = slides.map((_, i) => `
+    <div class="dot ${i === currentIndex ? 'active' : ''}" onclick="goToSlide(${i})"></div>
+  `).join('');
+}
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    renderSlide(currentIndex);
+    resetInterval();
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    renderSlide(currentIndex);
+    resetInterval();
+  }
+
+  function goToSlide(i) {
+    currentIndex = i;
+    renderSlide(currentIndex);
+    resetInterval();
+  }
+
+  function autoSlide() {
+    interval = setInterval(() => {
+      nextSlide();
+    }, 5000); // Every 5 seconds
+  }
+
+  function resetInterval() {
+    clearInterval(interval);
+    autoSlide(); // Restart timer
+  }
+
+  // Initial setup
+  renderSlide(currentIndex);
+  autoSlide();
+</script>
 </body>
 </html>
