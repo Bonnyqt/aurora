@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AURORA</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+{% include "myapp/loader.html" %}
+<div class="split-container">
+  <!-- Left Side -->
+  <div class="split left" onclick="navigateWithLoader('{% url 'pacific' %}')">
+    <div class="text-overlay left-overlay">
+      <span class="logo-text-combo" id="test"style="margin-left:80px;">
+        <img src="{% static 'images/whiteLogo.png' %}" alt="Logo">
+        <h1 style="font-family: 'MyFont', sans-serif;">AURORA</h1>
+      </span>
+    </div>
+    <img class="bg-image" src="https://rabda-entries.s3.amazonaws.com/store/2023/burger-lobster/image/34280/file/xlarge-751e8575548ef70f6e6fce905409d69e.jpeg" alt="Left Image">
+  </div>
+
+  <!-- Center Logo -->
+  <div class="logo-center">
+    <img src="{% static 'images/auroraLogo.png' %}" alt="Logo">
+    <p class="logo-text" style="font-family: 'MyFont', sans-serif;">Choose Your Adventure</p>
+  </div>
+
+  <!-- Right Side -->
+  <div class="split right" onclick="navigateWithLoader2('{% url 'podium' %}')">
+    <div class="text-overlay right-overlay">
+      <h4 style="font-family: 'MyFont2', sans-serif;">BISTRO</h4>
+      <h1 style="font-family: 'MyFont', sans-serif; font-size:50px;">AURORA</h1>
+    </div>
+    <img class="bg-image" src="https://wallpaperaccess.com/full/3692914.jpg" alt="Right Image">
+  </div>
+</div>
+
+<script src="{% static 'js/js.js' %}"></script>
+</body>
+</html>

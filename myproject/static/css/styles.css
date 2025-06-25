@@ -1,0 +1,171 @@
+@font-face {
+  font-family: 'MyFont';
+  src: url('../fonts/font2.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MyFont2';
+  src: url('../fonts/font3.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  overflow: hidden;
+}
+
+.split-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.split {
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  cursor: pointer;
+}
+
+.bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(30%);
+  transition: transform 0.4s ease, filter 0.3s ease;
+  z-index: 0;
+}
+
+.split:hover .bg-image {
+  transform: scale(1.05);
+  filter: brightness(90%);
+}
+
+/* Text Overlays Shared Style */
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  text-align: center;
+  z-index: 2;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  width: 200px;
+}
+
+/* Position Overrides */
+.left-overlay {
+  left: 5%;
+  
+}
+
+.right-overlay {
+  right: 5%;
+}
+
+/* Left Flex Text (Image + Text) */
+.logo-text-combo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.logo-text-combo img {
+  width: 75px;
+  height: 75px;
+  flex-shrink: 0;
+  transition: none !important;
+}
+
+.logo-text-combo h1 {
+  margin: 0;
+  font-size: 2rem;
+  transition: none !important;
+}
+
+/* Right Text */
+.text-overlay h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.text-overlay h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+/* Center Logo Block */
+.logo-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+
+}
+
+.logo-center img {
+  width: 150px;
+  height: 150px;
+  animation: fadeGlow 2s ease-in-out infinite;
+}
+
+@keyframes fadeGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 0px rgba(175, 127, 16, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 25px rgba(175, 127, 16, 1));
+  }
+}
+
+
+.logo-text {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #af7f10;
+}
+
+
+@media (max-width: 768px) {
+  .split-container {
+    flex-direction: column;
+  }
+
+  .split {
+    width: 100%;
+    height: 50vh;
+  }
+.logo-center img{
+  display: none;
+}
+.logo-text{
+   display: none;
+}
+#test{
+ margin-right:80px;
+}
+  .text-overlay {
+    width: 100%;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center;
+  }
+
+  .logo-text-combo {
+    flex-direction: column;
+  }
+}
