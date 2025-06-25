@@ -6,77 +6,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AURORA</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    header {
-      background-image: url('https://wallpaperaccess.com/full/3014734.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: white;
-    }
-
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 60px;
-    }
-
-    .social-icons {
-      display: flex;
-      gap: 20px;
-      font-size: 24px;
-      color: white;
-    }
-
-    nav {
-      text-align: center;
-      padding-bottom: 20px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: inline-flex;
-      gap: 30px;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-    }
-  </style>
+  <link rel="stylesheet" href="{% static 'css/pacific.css' %}">
 </head>
 <body>
-
+{% include "myapp/loader.html" %}
 <header>
-  <div class="header-content">
-    <img src="{% static 'images/branding.png' %}" style="height: 60px; width: 220px;" alt="Logo">
-
+  <!-- Top: logo left, icons right -->
+  <div class="top-row">
+    <img src="{% static 'images/branding.png' %}" class="logo" alt="Logo">
     <div class="social-icons">
       <i class="bi bi-facebook"></i>
       <i class="bi bi-instagram"></i>
       <i class="bi bi-tiktok"></i>
+      <button class="book-btn">BOOK NOW</button>
     </div>
   </div>
 
+  <!-- Nav: below logo, left aligned -->
   <nav>
+  <div class="nav-container">
     <ul>
-      <li><a href="">Home</a></li>
-      <li><a href="">About</a></li>
-      <li><a href="">Contact</a></li>
+      <li><a href="" class="active">HOME</a></li>
+      <li><a href="">ABOUT</a></li>
+      <li><a href="">MENU</a></li>
+      <li><a href="">RESERVATIONS</a></li>
+      <li><a href="">GALLERY</a></li>
+      <li><a href="">UPDATES</a></li>
+      <li><a href="">CONTACT US</a></li>
     </ul>
-  </nav>
+    <div class="switch-logo" onclick="navigateWithLoader2('{% url 'podium' %}')">
+  <h1><em>Switch to:</em></h1>
+  <img src="{% static 'images/branding1.png' %}" alt="" style="width: 130px; height: 40px;">
+</div>
+
+  </div>
+</nav>
+<br>
+<hr style="color: blue;">
+<br>
 </header>
 
 </body>
