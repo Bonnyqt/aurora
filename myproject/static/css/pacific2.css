@@ -1,0 +1,13 @@
+ @font-face {
+  font-family: 'MyFont';
+  src: url('../fonts/font2.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MyFont2';
+  src: url('../fonts/font3.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+   

@@ -5,10 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" type="image/png" href="{% static 'images/auroraLogo.png' %}">
-  <title>AURORA</title>
+  <title>BISTRO AURORA</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="{% static 'css/pacific.css' %}">
+  <link rel="stylesheet" href="{% static 'css/podium2.css' %}">
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
   <style>
     /* Layout */
     .top-row {
@@ -23,7 +24,7 @@
   display: none;
   font-size: 32px;
   cursor: pointer;
-  color: #ffffff;
+  color: #af7f10;
   position: absolute;
   right: 20px;
   top: 50%;
@@ -78,13 +79,13 @@
   text-align: center;
   width: 260px;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9); /* <-- Updated */
+  background: rgba(255, 255, 255, 0.9); /* <-- Updated */
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
   transition: right 0.4s ease;
   z-index: 1000;
   padding: 20px;
-  color: white;
-  font-family: 'MyFont2', sans-serif; /* <-- Updated */
+  color: rgb(0, 0, 0); 
+    font-family: 'MyFont2', sans-serif; 
 }
 
     .sidebar.open {
@@ -117,7 +118,7 @@
     }
 
     .sidebar a {
-  color: white; /* <-- Updated */
+  color: rgb(0, 0, 0); 
   text-decoration: none;
   font-size: 18px;
   transition: color 0.3s ease;
@@ -153,8 +154,8 @@
 .sidebar-btn {
   display: block;
   padding: 6px 15px;  
-  font-size: 10px;
-  color: #ffffff;
+  font-size: 14px;
+    color: rgb(0, 0, 0); 
   background: transparent;
   border: 2px solid #af7f10;
   cursor: pointer;
@@ -182,13 +183,12 @@
   }
 }
 
-/* Sticky header styles */
 .sticky-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  background: #000000d7;
+  background: #ffffffd7;
   z-index: 2000;
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
   transition: all 0.3s;
@@ -224,81 +224,45 @@
     display: none !important;
   }
 }
-
-/* ...existing code... */
-
-/* Animated hover effect for .image-gallery images */
-.image-gallery img {
-  transition: 
-    transform 0.4s cubic-bezier(0.4, 0.2, 0.2, 1),
-    box-shadow 0.4s cubic-bezier(0.4, 0.2, 0.2, 1),
-    filter 0.4s cubic-bezier(0.4, 0.2, 0.2, 1);
-  will-change: transform, box-shadow, filter;
-}
-
-.image-gallery img:hover {
-  transform: scale(1.07) rotate(-2deg);
-  box-shadow: 0 12px 32px rgba(175, 127, 16, 0.25), 0 2px 8px rgba(0,0,0,0.15);
-  filter: brightness(1.08) saturate(1.2);
-  z-index: 2;
-}
-
-/* Optional: smooth stacking on hover */
-.image-gallery {
-  position: relative;
-  z-index: 1;
-}
-.image-gallery img {
-  position: relative;
-  z-index: 1;
-}
-.image-gallery img:hover {
-  z-index: 10;
-}
-
-
   </style>
 </head>
 <body>
 {% include "myapp/loader.html" %}
-
 <div id="stickyHeader" class="sticky-header" style="display:none;">
   <div style="flex:1; display:flex; justify-content:flex-end;">
     <ul style="display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; align-items: center;">
-      <li><a href="" class="active" style="color: white; text-decoration: none; font-family: 'MyFont2', sans-serif; font-size: 10px; font-weight: 500; padding: 0 8px;">HOME</a></li>
-      <li><a href="" style="color: white; text-decoration: none; font-family: 'MyFont2', sans-serif; font-size: 10px; font-weight: 500; padding: 0 8px;">ABOUT</a></li>
-      <li><a href="" style="color: white; text-decoration: none; font-family: 'MyFont2', sans-serif; font-size: 10px; font-weight: 500; padding: 0 8px;">MENU</a></li>
-      <li><a href="" style="color: white; text-decoration: none; font-family: 'MyFont2', sans-serif; font-size: 10px; font-weight: 500; padding: 0 8px;">RESERVATIONS</a></li>
+      <li><a href="" class="active" style="color: rgb(0, 0, 0); text-decoration: none; font-family: 'MyFont2', sans-serif; font-size: 10px; font-weight: 500; padding: 0 8px;">HOME</a></li>
+      <li><a href="" style="color: rgb(0, 0, 0); text-decoration: none; font-family: 'MyFont2', sans-serif; font-size: 10px; font-weight: 500; padding: 0 8px;">ABOUT</a></li>
+      <li><a href="" style="color: rgb(0, 0, 0); text-decoration: none; font-family: 'MyFont2', sans-serif; font-size: 10px; font-weight: 500; padding: 0 8px;">MENU</a></li>
+      <li><a href="" style="color: rgb(0, 0, 0); text-decoration: none; font-family: 'MyFont2', sans-serif; font-size: 10px; font-weight: 500; padding: 0 8px;">RESERVATIONS</a></li>
     </ul>
   </div>
   <div style="flex:0; display:flex; justify-content:center; align-items:center;">
-    <a href="{% url 'pacific' %}">
-      <img src="{% static 'images/branding.png' %}" class="logo" alt="Logo" style="display: block;">
+    <a href="{% url 'podium2' %}">
+      <img src="{% static 'images/branding3.png' %}" class="logo" alt="Logo" style="display: block;">
     </a>
   </div>
   <div style="flex:1; display:flex; justify-content:flex-start;">
     <ul style="display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; align-items: center;">
-      <li><a href="" style="color: white; text-decoration: none; font-family: 'MyFont2', sans-serif; font-size: 10px; font-weight: 500; padding: 0 8px;">GALLERY</a></li>
-      <li><a href="" style="color: white; text-decoration: none; font-family: 'MyFont2', sans-serif; font-size: 10px; font-weight: 500; padding: 0 8px;">UPDATES</a></li>
-      <li><a href="" style="color: white; text-decoration: none; font-family: 'MyFont2', sans-serif; font-size: 10px; font-weight: 500; padding: 0 8px;">CONTACT US</a></li>
+      <li><a href="" style="color: rgb(0, 0, 0); text-decoration: none; font-family: 'MyFont2', sans-serif; font-size: 10px; font-weight: 500; padding: 0 8px;">GALLERY</a></li>
+      <li><a href="" style="color: rgb(0, 0, 0); text-decoration: none; font-family: 'MyFont2', sans-serif; font-size: 10px; font-weight: 500; padding: 0 8px;">UPDATES</a></li>
+      <li><a href="" style="color: rgb(0, 0, 0); text-decoration: none; font-family: 'MyFont2', sans-serif; font-size: 10px; font-weight: 500; padding: 0 8px;">CONTACT US</a></li>
     </ul>
    
   </div>
   </div>
-
-
 <header>
   <div class="top-row">
-<a href="{% url 'pacific' %}">
-  <img src="{% static 'images/branding.png' %}" class="logo" alt="Logo">
+  <a href="{% url 'podium2' %}">
+  <img src="{% static 'images/branding3.png' %}" class="logo" alt="Logo">
 </a>
 
     <i class="bi bi-list burger" onclick="toggleSidebar()"></i>
-    <div class="social-icons">
+    <div class="social-icons" style="color:black;">
       <i class="bi bi-facebook"></i>
       <i class="bi bi-instagram"></i>
       <i class="bi bi-tiktok"></i>
-      <button class="book-btn">BOOK NOW</button>
+      <button class="book-btn" style="color:black;">BOOK NOW</button>
     </div>
   </div>
 
@@ -314,9 +278,9 @@
         <li><a href="">CONTACT US</a></li>
       </ul>
       
-      <div class="switch-logo" onclick="navigateWithLoader2('{% url 'podium' %}')">
-        <h1><em>Switch to:</em></h1>
-        <img src="{% static 'images/branding1.png' %}" alt="" style="width: 130px; height: 40px;">
+      <div class="switch-logo" onclick="navigateWithLoader('{% url 'pacific2' %}')">
+        <h1 style="color:black;"><em>Switch to:</em></h1>
+        <img src="{% static 'images/branding4.png' %}" alt="" style="width: 130px; height: 40px;">
       </div>
     </div>
   </nav>
@@ -333,9 +297,9 @@
       <li><a href="">CONTACT US</a></li>
     </ul>
     <button class="book-btn sidebar-btn">BOOK NOW</button>
-    <div class="switch-logo" onclick="navigateWithLoader2('{% url 'podium' %}')">
-      <h1><em>Switch to:</em></h1>
-      <img src="{% static 'images/branding1.png' %}" alt="" style="width: 130px; height: 40px;">
+    <div class="switch-logo" onclick="navigateWithLoader('{% url 'pacific2' %}')">
+      <h1 style="  color: rgb(0, 0, 0); "><em>Switch to:</em></h1>
+      <img src="{% static 'images/branding4.png' %}" alt="" style="width: 130px; height: 40px;">
     </div>
   </div>
 
@@ -344,20 +308,23 @@
 
   <br><hr><br>
   <div class="carousel">
-  <div class="carousel-slide" id="carouselSlide">
+ 
+  <div class="carousel-slide" id="carouselSlide" style=" border-radius: 40px;">
+    <!-- Slide content injected here -->
   </div>
+
+
   <div class="dots" id="dots"></div>
 </div>
-
 </header>
  <div class="arrow left" onclick="prevSlide()">&lt;</div>
   <div class="arrow right" onclick="nextSlide()">&gt;</div>
   
-  <div class="side-by-side">
-    <div class="image-content"data-aos="fade-left">
+  <div class="side-by-side" data-aos="fade-up">
+    <div class="image-content">
     <img src="{% static 'images/about.png' %}" style="height:auto;width: 900px;" alt="Your image">
   </div>
-  <div class="text-content"data-aos="fade-right">
+  <div class="text-content" >
     <h1 style="font-family: 'MyFont2'; font-size: 60px;">"About"</h1><br>
     <h2 style="font-family: 'MyFont2';">Your Title Here</h2>
     <br>
@@ -371,7 +338,7 @@
   <h1 class="background-text" >All-Time Favorites</h1>
 
   <div class="image-gallery">
-    <img src="{% static 'images/bg1.jpeg' %}" alt="Food 1">
+    <img src="{% static 'images/bg1.jpeg' %}" alt="Food 1" >
     <img src="{% static 'images/bg1.jpeg' %}" alt="Drink 1">
     <img src="{% static 'images/bg1.jpeg' %}" alt="Food 2">
     <img src="{% static 'images/bg1.jpeg' %}" alt="Drink 2">
@@ -420,7 +387,6 @@
     <img src="{% static 'images/bg1.jpeg' %}" alt="Food 2">
     <img src="{% static 'images/bg1.jpeg' %}" alt="Drink 2">
     <img src="{% static 'images/bg1.jpeg' %}" alt="Food 3">
-
   </div>
 </div>
 <script>

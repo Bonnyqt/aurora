@@ -8,3 +8,7 @@ def pacific(request):
 
 def podium(request):
     return render(request, 'myapp/podium/bistro.html')
+def pacific2(request):
+    return render(request, 'myapp/pacificstar/aurora2.html')
+def podium2(request):
+    return render(request, 'myapp/podium/bistro2.html')

@@ -79,12 +79,12 @@
   text-align: center;
   width: 260px;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9); /* <-- Updated */
+  background: rgba(255, 255, 255, 0.9); /* <-- Updated */
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
   transition: right 0.4s ease;
   z-index: 1000;
   padding: 20px;
-  color: white; 
+  color: rgb(0, 0, 0); 
     font-family: 'MyFont2', sans-serif; 
 }
 
@@ -118,7 +118,7 @@
     }
 
     .sidebar a {
-  color: white; /* <-- Updated */
+  color: rgb(0, 0, 0); 
   text-decoration: none;
   font-size: 18px;
   transition: color 0.3s ease;
@@ -155,7 +155,7 @@
   display: block;
   padding: 6px 15px;  
   font-size: 14px;
-  color: #ffffff;
+    color: rgb(0, 0, 0); 
   background: transparent;
   border: 2px solid #af7f10;
   cursor: pointer;
@@ -298,8 +298,8 @@
     </ul>
     <button class="book-btn sidebar-btn">BOOK NOW</button>
     <div class="switch-logo" onclick="navigateWithLoader('{% url 'pacific' %}')">
-      <h1><em>Switch to:</em></h1>
-      <img src="{% static 'images/branding.png' %}" alt="" style="width: 130px; height: 40px;">
+      <h1 style="  color: rgb(0, 0, 0); "><em>Switch to:</em></h1>
+      <img src="{% static 'images/branding4.png' %}" alt="" style="width: 130px; height: 40px;">
     </div>
   </div>
 
