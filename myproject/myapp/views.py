@@ -12,3 +12,6 @@ def pacific2(request):
     return render(request, 'myapp/pacificstar/aurora2.html')
 def podium2(request):
     return render(request, 'myapp/podium/bistro2.html')
+
+def about(request):
+    return render(request, 'myapp/pacificstar/about.html')
