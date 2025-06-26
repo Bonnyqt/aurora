@@ -8,6 +8,7 @@
   <title>BISTRO AURORA</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="{% static 'css/podium.css' %}">
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <style>
     /* Layout */
@@ -83,7 +84,8 @@
   transition: right 0.4s ease;
   z-index: 1000;
   padding: 20px;
-  color: white; /* <-- Set default text color to white */
+  color: white; 
+    font-family: 'MyFont2', sans-serif; 
 }
 
     .sidebar.open {
@@ -180,14 +182,81 @@
     display: block; /* show the sidebar version */
   }
 }
+
+.sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background: #ffffffd7;
+  z-index: 2000;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  transition: all 0.3s;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInSticky 0.3s;
+  
+}
+
+@keyframes fadeInSticky {
+  from { opacity: 0; transform: translateY(-20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.sticky-header .logo {
+  width: 160px;
+  height: auto;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.sticky-header .top-row,
+.sticky-header nav,
+.sticky-header .burger,
+.sticky-header .social-icons,
+.sticky-header .switch-logo {
+  display: none !important;
+}
+@media (max-width: 768px) {
+  #stickyHeader {
+    display: none !important;
+  }
+}
   </style>
 </head>
 <body>
 {% include "myapp/loader.html" %}
-
+<div id="stickyHeader" class="sticky-header" style="display:none;">
+  <div style="flex:1; display:flex; justify-content:flex-end;">
+    <ul style="display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; align-items: center;">
+      <li><a href="" class="active" style="color: rgb(0, 0, 0); text-decoration: none; font-family: 'MyFont2', sans-serif; font-size: 10px; font-weight: 500; padding: 0 8px;">HOME</a></li>
+      <li><a href="" style="color: rgb(0, 0, 0); text-decoration: none; font-family: 'MyFont2', sans-serif; font-size: 10px; font-weight: 500; padding: 0 8px;">ABOUT</a></li>
+      <li><a href="" style="color: rgb(0, 0, 0); text-decoration: none; font-family: 'MyFont2', sans-serif; font-size: 10px; font-weight: 500; padding: 0 8px;">MENU</a></li>
+      <li><a href="" style="color: rgb(0, 0, 0); text-decoration: none; font-family: 'MyFont2', sans-serif; font-size: 10px; font-weight: 500; padding: 0 8px;">RESERVATIONS</a></li>
+    </ul>
+  </div>
+  <div style="flex:0; display:flex; justify-content:center; align-items:center;">
+    <a href="{% url 'pacific' %}">
+      <img src="{% static 'images/branding3.png' %}" class="logo" alt="Logo" style="display: block;">
+    </a>
+  </div>
+  <div style="flex:1; display:flex; justify-content:flex-start;">
+    <ul style="display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; align-items: center;">
+      <li><a href="" style="color: rgb(0, 0, 0); text-decoration: none; font-family: 'MyFont2', sans-serif; font-size: 10px; font-weight: 500; padding: 0 8px;">GALLERY</a></li>
+      <li><a href="" style="color: rgb(0, 0, 0); text-decoration: none; font-family: 'MyFont2', sans-serif; font-size: 10px; font-weight: 500; padding: 0 8px;">UPDATES</a></li>
+      <li><a href="" style="color: rgb(0, 0, 0); text-decoration: none; font-family: 'MyFont2', sans-serif; font-size: 10px; font-weight: 500; padding: 0 8px;">CONTACT US</a></li>
+    </ul>
+   
+  </div>
+  </div>
 <header>
   <div class="top-row">
-    <img src="{% static 'images/branding3.png' %}" class="logo" alt="Logo">
+  <a href="{% url 'podium' %}">
+  <img src="{% static 'images/branding3.png' %}" class="logo" alt="Logo">
+</a>
+
     <i class="bi bi-list burger" onclick="toggleSidebar()"></i>
     <div class="social-icons" style="color:black;">
       <i class="bi bi-facebook"></i>
@@ -240,7 +309,7 @@
   <br><hr><br>
   <div class="carousel">
  
-  <div class="carousel-slide" id="carouselSlide">
+  <div class="carousel-slide" id="carouselSlide" style=" border-radius: 40px;">
     <!-- Slide content injected here -->
   </div>
 
@@ -251,11 +320,11 @@
  <div class="arrow left" onclick="prevSlide()">&lt;</div>
   <div class="arrow right" onclick="nextSlide()">&gt;</div>
   
-  <div class="side-by-side">
+  <div class="side-by-side" data-aos="fade-up">
     <div class="image-content">
     <img src="{% static 'images/about.png' %}" style="height:auto;width: 900px;" alt="Your image">
   </div>
-  <div class="text-content">
+  <div class="text-content" >
     <h1 style="font-family: 'MyFont2'; font-size: 60px;">"About"</h1><br>
     <h2 style="font-family: 'MyFont2';">Your Title Here</h2>
     <br>
@@ -269,7 +338,7 @@
   <h1 class="background-text" >All-Time Favorites</h1>
 
   <div class="image-gallery">
-    <img src="{% static 'images/bg1.jpeg' %}" alt="Food 1">
+    <img src="{% static 'images/bg1.jpeg' %}" alt="Food 1" >
     <img src="{% static 'images/bg1.jpeg' %}" alt="Drink 1">
     <img src="{% static 'images/bg1.jpeg' %}" alt="Food 2">
     <img src="{% static 'images/bg1.jpeg' %}" alt="Drink 2">
@@ -310,7 +379,16 @@
   ">– Jon Bon Marquez</h5>
 </div>
 
+<div class="showcase">
 
+  <div class="image-gallery2">
+    <img src="{% static 'images/bg1.jpeg' %}" alt="Food 1">
+    <img src="{% static 'images/bg1.jpeg' %}" alt="Drink 1">
+    <img src="{% static 'images/bg1.jpeg' %}" alt="Food 2">
+    <img src="{% static 'images/bg1.jpeg' %}" alt="Drink 2">
+    <img src="{% static 'images/bg1.jpeg' %}" alt="Food 3">
+  </div>
+</div>
 <script>
   function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
@@ -406,6 +484,27 @@
   // Initial setup
   renderSlide(currentIndex);
   autoSlide();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script>
+window.addEventListener('scroll', function() {
+  const sticky = document.getElementById('stickyHeader');
+  const topRow = document.querySelector('.top-row');
+  if (window.scrollY > topRow.offsetHeight - 20) {
+    sticky.style.display = 'flex';
+    topRow.style.visibility = 'hidden';
+    topRow.style.opacity = '0';
+    topRow.style.pointerEvents = 'none';
+  } else {
+    sticky.style.display = 'none';
+    topRow.style.visibility = 'visible';
+    topRow.style.opacity = '1';
+    topRow.style.pointerEvents = 'auto';
+  }
+});
 </script>
 </body>
 </html>

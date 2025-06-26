@@ -161,15 +161,16 @@ nav h1 {
       align-items: center;
       justify-content: center;
       overflow: hidden;
-    height: 70vh;
+      height: 80vh;
       position: relative;
+
     }
 
     .carousel-slide {
       display: flex;
       width: 90%;
       max-width: 1900px;
-      height: 550px;
+      height: 600px;
       background: url('bg-texture.png') repeat;
       overflow: hidden;
       position: relative;
@@ -407,6 +408,27 @@ nav h1 {
 }
 
 .image-gallery img {
+  width: 240px;
+  height: 400px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  object-fit: cover;
+  display: block;
+  border-radius: 160px;
+  transition: transform 0.3s ease;
+}
+.image-gallery2 {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 80px 10px 40px;
+}
+
+.image-gallery2 img {
   width: 240px;
   height: 400px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
