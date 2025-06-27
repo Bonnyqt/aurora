@@ -60,12 +60,20 @@
     filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
   }
 }
+@keyframes fadeGlow2 {
+  0%, 100% {
+    filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgb(2, 2, 2));
+  }
+}
     #loader-backdrop2 img {
   width: 650px;
       height: 200px;
   animation: zoomIn 0.4s ease-in-out forwards,
              bounce 0.8s ease-in-out 0.4s 2,
-             fadeGlow 2s ease-in-out infinite;
+             fadeGlow2 2s ease-in-out infinite;
 }
 
 @keyframes zoomIn {

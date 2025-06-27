@@ -17,7 +17,7 @@
     .about-image img {
       width: 100%;
       height: auto;
-      border-radius: 4px;
+
     }
 
     .about-text {
@@ -55,7 +55,6 @@
       background: transparent;
       border: 1px solid #2c1d18;
       color: #2c1d18;
-          border-radius: 50px;
       cursor: pointer;
       transition: all 0.3s ease;
     }
@@ -77,7 +76,7 @@
   width: 0;
   height: 2px;
   background-color: #2c1d18; /* or your brand color */
-  transition: width 0.1s ease;
+  transition: width 0.4s ease;
 }
 
 .about-text:hover h1::after {
@@ -104,7 +103,7 @@
   .about-image img {
     max-width: 100%;
     height: auto;
-    border-radius: 6px;
+
   }
 
   .about-image,
@@ -128,7 +127,7 @@
   }
 
   .about-text h1 {
-    font-size: 36px;
+    font-size: 60px;
     color: #2c1d18;
     margin-bottom: 20px;
   }
@@ -178,18 +177,23 @@
 
 <div class="about-container">
 <div class="about-section">
-  <div class="about-image">
-    <img src="https://scontent.fmnl14-2.fna.fbcdn.net/v/t39.30808-6/484095049_635824912539929_2701788863982427642_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Rt_D6JsWsxwQ7kNvwGlGNdW&_nc_oc=Adlp01Nn5n2mFZST2lW_5QDi6Kq2ZVJ_ukEHOwCi8FEFUq2tmdPYZagP58Zr1SnJnUU&_nc_zt=23&_nc_ht=scontent.fmnl14-2.fna&_nc_gid=ueFMP1XeVACZO3LSM4McHA&oh=00_AfN3dxcFTUekiBgY5i0PKRj0Dj1y6V41lu_V9TYn_5hhQw&oe=6863CEEF" style="width: auto;height: 550px; border-radius: 30px;" alt="About Image">
-  </div>
+  
   <div class="about-text">
-    <div class="elegant-line-text">ABOUT</div>
+    <div class="elegant-line-text">VISIT</div>
     <h1>AURORA</h1>
     <p>
       At Aurora, we pay tribute to the elegance and charm of classically-rooted Asian cooking, spotlighting the 
       robust and familiar flavors you know and love. Our plates are designed to 
       be shared—a reminder that meals are more nourishing when we gather around the table. Everyone is invited.
     </p>
-    <a href="{% url 'about' %}"><button  class="read-more-btn">READ MORE</button></a>
-  </div>
+    <div>
+  <a href="https://www.google.com/maps/dir/?api=1&destination=14.561373580781721,121.0271836606483&travelmode=driving" target="_blank">
+  <button class="read-more-btn">ESTIMATE TRAVEL TIME</button>
+</a>
+
+</div></div>
+<div class="about-image">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.661361341613!2d121.02459647603332!3d14.561347685920426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c9e5504eff79%3A0x49b740a5d998757a!2sRestaurant%20Aurora!5e0!3m2!1sen!2sph!4v1750998264894!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
 </div>
 </div>

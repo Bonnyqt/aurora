@@ -116,12 +116,12 @@
   padding: 5px 0;
   background: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0.5) 0%,
-    rgba(255, 255, 255, 0.3) 60%,
-    rgba(255, 255, 255, 0.1) 90%,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(255, 255, 255, 0.5) 60%,
+    rgba(255, 255, 255, 0.4) 90%,
     rgba(255, 255, 255, 0) 100%
   );
-  position: absolute;      /* Make header overlap slideshow */
+  position: absolute;    
   top: 0;
   left: 0;
   width: 100vw;
@@ -359,11 +359,17 @@
     left: 0;
     width: 100vw;
     height: 60px;
-    
+    background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.3) 60%,
+    rgba(255, 255, 255, 0.1) 90%,
+    rgba(255, 255, 255, 0) 100%
+  );
     z-index: 999;
     align-items: center;
     justify-content: center;
-    padding: 0 16px;
+    
  
   }
 
@@ -399,7 +405,7 @@
   right: 40px;
   transform: translateY(-50%);
   font-size: 28px;
-  color: #fff;
+  color: #000000;
   cursor: pointer;
   padding: 4px 8px;
   transition: transform 0.3s ease;
@@ -409,7 +415,7 @@
 .luxury-btn {
   display: inline-block;
   padding: 14px 34px;
-  color: #000000;
+  color: #ffffff;
   font-family: 'Playfair Display', serif;
   font-size: 14px;
   font-weight: 550;
@@ -490,17 +496,16 @@
   cursor: pointer;
 }
 
-
-@keyframes fadeGlow {
+@keyframes fadeGlow2 {
   0%, 100% {
     filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0.4));
   }
   50% {
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
+    filter: drop-shadow(0 0 10px rgb(2, 2, 2));
   }
 }
     .sticky-logo:hover, .right-corner-logo:hover {
-  animation: fadeGlow 2s ease-in-out infinite;
+  animation: fadeGlow2 2s ease-in-out infinite;
   cursor: pointer;
 }
 
@@ -697,7 +702,7 @@ function toggleMobileNav() {
       // Insert mobile logo if not yet added
       if (!mobileLogoInserted) {
         const logo = document.createElement('img');
-        logo.src = "{% static 'images/branding.png' %}";
+        logo.src = "{% static 'images/branding3.png' %}";
         logo.alt = "Logo";
         logo.id = "mobileLogo";
         logo.className = "mobile-logo";

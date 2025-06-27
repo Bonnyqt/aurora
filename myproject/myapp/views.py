@@ -15,3 +15,5 @@ def podium2(request):
 
 def about(request):
     return render(request, 'myapp/pacificstar/about.html')
+def reserve(request):
+    return render(request, 'myapp/pacificstar/gallery.html')
