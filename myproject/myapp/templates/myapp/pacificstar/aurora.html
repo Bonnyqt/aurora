@@ -255,7 +255,28 @@
 .image-gallery img:hover {
   z-index: 10;
 }
-
+.modal-content {
+  background: white;
+  padding: 20px;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 8px;
+}
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes modalContentPop {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.modal {
+  /* ...existing styles... */
+  animation: modalFadeIn 0.3s;
+}
+.modal-content, #menuModal > *:not(span) {
+  animation: modalContentPop 0.3s;
+}
 
   </style>
 </head>
@@ -379,10 +400,45 @@
     <img src="{% static 'images/bg1.jpeg' %}" alt="Drink 3">
   </div>
 
-  <div class="button-container">
-    <button class="view-menu-btn">VIEW MENU</button>
+    <div class="button-container">
+  <button class="view-menu-btn" onclick="showModal()">VIEW MENU</button>
+</div>
+
+<!-- Modal Element (Initially Hidden) -->
+ <div id="menuModal" class="modal" style="display: none; position: fixed;">
+  <span 
+    onclick="closeModal()" 
+    style="
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+      z-index: 1100;
+      background: rgba(255,255,255,0.8);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: background 0.2s;
+    "
+    onmouseover="this.style.background='#eee'"
+    onmouseout="this.style.background='rgba(255,255,255,0.8)'"
+    aria-label="Close"
+    >&times;</span>
+  <div class="modal-content" style="background-color: transparent;">
+    {% include "myapp/pacificstar/menu.html" %}
   </div>
 </div>
+<div id="menuModal" class="modal" style="display: none;">
+  {% include "myapp/pacificstar/menu.html" %}
+</div>
+
 
 <div class="testimonial" style="
   background-color: black;
@@ -423,6 +479,7 @@
 
   </div>
 </div>
+ {% include "myapp/pacificstar/footer.html" %}
 <script>
   function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
@@ -539,6 +596,26 @@ window.addEventListener('scroll', function() {
     topRow.style.pointerEvents = 'auto';
   }
 });
+</script>
+<script>
+   function showModal() {
+    const modal = document.getElementById('menuModal');
+    modal.style.display = 'flex';
+    // Restart animation
+    modal.classList.remove('modal-animate');
+    void modal.offsetWidth; // trigger reflow
+    modal.classList.add('modal-animate');
+    const content = modal.querySelector('.modal-content');
+    if(content){
+      content.classList.remove('modal-content-animate');
+      void content.offsetWidth;
+      content.classList.add('modal-content-animate');
+    }
+  }
+
+  function closeModal() {
+    document.getElementById('menuModal').style.display = 'none';
+  }
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <style>
-  .about-section {
+  .about-section2 {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -20,12 +20,12 @@
 
     }
 
-    .about-text {
+    .about-text2 {
       flex: 1;
       padding-left: 60px;
     }
 
-    .about-text h3 {
+    .about-text2 h3 {
       font-size: 14px;
       color: #888;
       letter-spacing: 2px;
@@ -33,7 +33,7 @@
       position: relative;
     }
 
-    .about-text h1 {
+    .about-text2 h1 {
       font-size: 40px;
       font-weight: bold;
       color: #2c1d18;
@@ -41,7 +41,7 @@
       margin-bottom: 20px;
     }
 
-    .about-text p {
+    .about-text2 p {
       font-size: 16px;
       color: #333;
       line-height: 1.6;
@@ -63,12 +63,12 @@
       background: #2c1d18;
       color: #fff;
     }
-    .about-text h1 {
+    .about-text2 h1 {
   position: relative;
   display: inline-block;
 }
 
-.about-text h1::after {
+.about-text2 h1::after {
   content: '';
   position: absolute;
   left: 0;
@@ -79,10 +79,10 @@
   transition: width 0.4s ease;
 }
 
-.about-text:hover h1::after {
+.about-text2:hover h1::after {
   width: 100%;
 }
- .about-container {
+ .about-container2 {
     background-image: url('https://media.istockphoto.com/id/2150089015/vector/light-grey-and-white-gradient-coloured-textured-effect-old-faded-blank-empty-plain.jpg?s=612x612&w=0&k=20&c=3lRofPRUMUWXZFCmzWOpxSIyM8Mn-CDU7_OeNxikTzc=');
     background-size: cover;
     background-position: center;
@@ -90,7 +90,7 @@
     padding: 40px 20px;
   }
 
-  .about-section {
+  .about-section2 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,32 +107,32 @@
   }
 
   .about-image,
-  .about-text {
+  .about-text2 {
     flex: 1 1 300px;
     min-width: 280px;
   }
 
-  .about-text {
+  .about-text2 {
     padding: 20px;
     justify-content: center;
     text-align: center;
     align-items: center;
   }
 
-  .about-text h3 {
+  .about-text2 h3 {
     font-size: 14px;
     letter-spacing: 1px;
     color: #555;
     margin-bottom: 10px;
   }
 
-  .about-text h1 {
+  .about-text2 h1 {
     font-size: 60px;
     color: #2c1d18;
     margin-bottom: 20px;
   }
 
-  .about-text p {
+  .about-text2 p {
     font-size: 16px;
     line-height: 1.6;
     color: #333;
@@ -154,31 +154,111 @@
     background: #2c1d18;
     color: white;
   }
+@media (max-width: 1200px) {
+    .about-section2 {
+      gap: 20px;
+      padding: 20px 0;
+      margin-top: 200px;
+    }
+    .about-text2 {
+      padding: 10px;
+    }
+    .about-text2 h1 {
+      font-size: 36px;
+    }
+    .about-image iframe {
+      height: 320px;
+    }
+  }
+  @media (max-width: 1500px) {
+    .about-section2 {
+      gap: 20px;
+      padding: 20px 0;
+      margin-top: 200px;
+    }
+    .about-text2 {
+      padding: 10px;
+    }
+    .about-text2 h1 {
+      font-size: 36px;
+    }
+    .about-image iframe {
+      height: 320px;
+    }
+  }
+  @media (max-width: 1800px) {
+    .about-section2 {
+      gap: 20px;
+      padding: 20px 0;
+      margin-top: 200px;
+    }
+    .about-text2 {
+      padding: 10px;
+    }
+    .about-text2 h1 {
+      font-size: 36px;
+    }
+    .about-image iframe {
+      height: 320px;
+    }
+  }
+    @media (max-width: 900px) {
+    .about-section2 {
+      gap: 20px;
+      padding: 20px 0;
+      margin-top: 200px;
+    }
+    .about-text2 {
+      padding: 10px;
+    }
+    .about-text2 h1 {
+      font-size: 36px;
+    }
+    .about-image iframe {
+      height: 320px;
+    }
+  }
 
-  @media (max-width: 768px) {
-    .about-section {
+  @media (max-width: 600px) {
+    .about-section2 {
       flex-direction: column;
-      text-align: center;
+      gap: 10px;
+      padding: 10px 0;
+      margin-top: 400px;
     }
-
-    .about-text h1 {
-      font-size: 28px;
-    }
-
-    .about-text p {
-      font-size: 15px;
-    }
-
+    .about-text2,
     .about-image {
-      margin-bottom: 20px;
+      min-width: 0;
+      width: 100%;
+      padding: 0;
+    }
+    .about-text2 h1 {
+      font-size: 24px;
+    }
+    .about-text2 p {
+      font-size: 14px;
+    }
+    .about-image iframe {
+      width: 100%;
+      min-width: 0;
+      height: 200px;
+    }
+    .read-more-btn {
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 13px;
+      padding: 10px 0;
+    }
+    .about-container2 {
+      padding: 10px 2vw;
     }
   }
 </style>
 
-<div class="about-container">
-<div class="about-section">
+<div class="about-container2">
+<div class="about-section2">
   
-  <div class="about-text">
+  <div class="about-text2">
     <div class="elegant-line-text">VISIT</div>
     <h1>AURORA</h1>
     <p>

@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aurora</title>
    <style>
+    html {
+  scroll-behavior: smooth;
+}
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap');
 
     html, body {
@@ -525,11 +528,11 @@
   <div class="sidebar-content">
     <span class="close-btn" onclick="toggleMobileNav()">&times;</span>
     <ul>
-      <li><a href="#">HOME</a></li>
-      <li><a href="#">ABOUT</a></li>
-      <li><a href="#">RESERVATIONS</a></li>
-      <li><a href="#">MENU</a></li>
-      <li><a href="#">GALLERY</a></li>
+      <li><a href="{% url 'index'%}">HOME</a></li>
+      <li><a href="#aboutAnchor">ABOUT</a></li>
+      <li><a href="">RESERVATIONS</a></li>
+      <li><a href="#favoritesAnchor">MENU</a></li>
+      <li><a href="#galleryAnchor">GALLERY</a></li>
       <li><a href="#">CONTACT US</a></li>
        <a href="#" class="luxury-btn" style="z-index: 200;">Book a Table</a>
     </ul>
@@ -547,9 +550,9 @@
   <div class="header-row">
     <nav class="nav-left">
       <ul>
-        <li><a href="#" class="active">HOME</a></li>
-        <li><a href="#">ABOUT</a></li>
-        <li><a href="#">RESERVATIONS</a></li>
+        <li><a href="{% url 'index'%}" class="active">HOME</a></li>
+        <li><a href="#aboutAnchor">ABOUT</a></li>
+        <li><a href="">RESERVATIONS</a></li>
       </ul>
     </nav>
      <div class="logo-center">
@@ -559,8 +562,8 @@
         </div>
     <nav class="nav-right">
       <ul>
-        <li><a href="#">MENU</a></li>
-        <li><a href="#">GALLERY</a></li>
+        <li><a href="#favoritesAnchor">MENU</a></li>
+        <li><a href="#galleryAnchor">GALLERY</a></li>
         <li><a href="#">CONTACT US</a></li>
       </ul>
     </nav>
@@ -573,11 +576,11 @@
   <div class="header-row" style="margin-top: 20px; background:transparent;">
     <nav class="nav-combined">
       <ul>
-        <li><a href="#" class="active">HOME</a></li>
-        <li><a href="#">ABOUT</a></li>
-        <li><a href="#">RESERVATIONS</a></li>
-        <li><a href="#">MENU</a></li>
-        <li><a href="#">GALLERY</a></li>
+        <li><a href="{% url 'index'%}" class="active">HOME</a></li>
+        <li><a href="#aboutAnchor">ABOUT</a></li>
+        <li><a href="">RESERVATIONS</a></li>
+        <li><a href="#favoritesAnchor">MENU</a></li>
+        <li><a href="#galleryAnchor">GALLERY</a></li>
         <li><a href="#">CONTACT US</a></li>
       </ul>
     </nav>
