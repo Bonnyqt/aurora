@@ -34,7 +34,6 @@
     }
 
     .about-text h1 {
-      margin-top: 0px;
       font-size: 40px;
       font-weight: bold;
       color: #2c1d18;
@@ -47,7 +46,6 @@
       color: #333;
       line-height: 1.6;
       margin-bottom: 30px;
-      text-align: justify;
     }
 
     .read-more-btn {
@@ -176,41 +174,21 @@
     }
   }
 </style>
-  {% if request.path != '/pacific2' and request.path != '/' %}
-    {% include 'myapp/pacificstar/baseHeader.html' %}
-  {% endif %}
-<div class="about-container" id="about">
+
+<div class="about-container" id="aboutAnchor">
 <div class="about-section">
   <div class="about-image">
-    <img src="https://scontent.fmnl14-1.fna.fbcdn.net/v/t39.30808-6/511026510_710795215042898_1115857178223679141_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGl76N5jh6NWErLXH-Tng2aaocfpx058AJqhx-nHTnwAgZNzBhdd7-kermbbnq_JEPR1_L2l365Ste-4592hV75&_nc_ohc=SRzLSBHBRooQ7kNvwFgqpYV&_nc_oc=AdnVflOchcsAYUH2fG0plnHMDJ0G4B2qetay3sQE4u2yGLWMEdfN7X6T4cChqD9qGuY&_nc_zt=23&_nc_ht=scontent.fmnl14-1.fna&_nc_gid=ETVwuLO4A75v-44k8m_3Kg&oh=00_AfTSX10zcGjAQsfrb9GcogVS665D_alFmEB0MIqaEmUPYQ&oe=6884DBDB" style="width: auto;height: 550px;" alt="About Image">
+    <img src="https://scontent.fmnl14-2.fna.fbcdn.net/v/t39.30808-6/484095049_635824912539929_2701788863982427642_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Rt_D6JsWsxwQ7kNvwGlGNdW&_nc_oc=Adlp01Nn5n2mFZST2lW_5QDi6Kq2ZVJ_ukEHOwCi8FEFUq2tmdPYZagP58Zr1SnJnUU&_nc_zt=23&_nc_ht=scontent.fmnl14-2.fna&_nc_gid=ueFMP1XeVACZO3LSM4McHA&oh=00_AfN3dxcFTUekiBgY5i0PKRj0Dj1y6V41lu_V9TYn_5hhQw&oe=6863CEEF" style="width: auto;height: 550px;" alt="About Image">
   </div>
   <div class="about-text">
-    <br><br><br><div class="elegant-line-text">ABOUT</div>
+    <div class="elegant-line-text">ABOUT</div>
     <h1>AURORA</h1>
     <p>
       At Aurora, we pay tribute to the elegance and charm of classically-rooted Asian cooking, spotlighting the 
       robust and familiar flavors you know and love. Our plates are designed to 
       be shared—a reminder that meals are more nourishing when we gather around the table. Everyone is invited.
     </p>
-{% if request.path != '/pacific2' %}
-    <p>
-            Opened in partnership with Divina Law founder and Managing Partner Atty. Nilo Divina, Aurora is a spirited bistro that pays homage to robust Asian flavors and heartwarming homestyle classics. “Aurora is named after my mother, whose homecooked meals brought everyone together.” shares Divina. “This is my first foray into F&B, and I hope to bring lots of care and attention to detail to this restaurant to honor her. As a lawyer, there’s also a level of perfection and excellence in execution that I always strive for.”
-            <br><br>
-            Find us in the corporate facade of Makati City’s Pacific Star Building–there’s an upbeat dining floor, an outdoor patio accented with lush greenery, a full wall display of wine, a private dining room, and a bar. We designed each spot to fit the bill for fashionable hangouts with friends, corporate catch-ups, or romantic dates–and we’re excited to welcome you into our space.
-            <br><br>
-            Our menu showcases modern variations of classically-rooted, regional Asian cooking guided by our chefs’ Asian-leaning backgrounds, and draws inspiration from nostalgic memories of meals made at home. What is special to note is that the menu was also designed to bring out the talent and personality of their team members.
-            <br><br>
-            Aurora is a toast to people, passion, and the people you share it with. Make yourself at home–you’re in good hands here.
-          </p>
-{% endif %}
-
-          {% if request.path == '/pacific2' %}
-          <a href="{% url 'about' %}"><button class="read-more-btn">READ MORE</button></a>
-          {% endif %}
-          </div>
-
+    <a href="{% url 'about' %}"><button  class="read-more-btn">READ MORE</button></a>
+  </div>
 </div>
 </div>
-    {% if request.path != '/pacific2' and request.path != '/' %}
-    {% include 'myapp/pacificstar/baseFooter.html' %}
-  {% endif %}

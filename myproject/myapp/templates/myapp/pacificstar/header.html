@@ -4,9 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <title>Aurora</title>
    <style>
+    html {
+  scroll-behavior: smooth;
+}
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap');
 
     html, body {
@@ -507,9 +509,7 @@
   cursor: pointer;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+
 
 
 @keyframes fadeGlow {
@@ -528,14 +528,13 @@ html {
   <div class="sidebar-content">
     <span class="close-btn" onclick="toggleMobileNav()">&times;</span>
     <ul>
-      <li><a href="#">HOME</a></li>
-      <li><a href="#">ABOUT</a></li>
-      <li><a href="#">MENU</a></li>
-      <li><a href="#">GALLERY</a></li>
-      <li><a href="#">CONTACT</a></li>
-      <a href="#contact"></a>
-       <li><a href="#">RESERVATIONS</a></li>
-       <a href="#reservation" class="luxury-btn" style="z-index: 200;">Book a Table</a>
+      <li><a href="{% url 'index'%}">HOME</a></li>
+      <li><a href="#aboutAnchor">ABOUT</a></li>
+      <li><a href="">RESERVATIONS</a></li>
+      <li><a href="#favoritesAnchor">MENU</a></li>
+      <li><a href="#galleryAnchor">GALLERY</a></li>
+      <li><a href="#">CONTACT US</a></li>
+       <a href="#" class="luxury-btn" style="z-index: 200;">Book a Table</a>
     </ul>
   </div>
 </div>
@@ -551,9 +550,9 @@ html {
   <div class="header-row">
     <nav class="nav-left">
       <ul>
-        <li><a href="#" class="active">HOME</a></li>
-        <li><a href="#about">ABOUT</a></li>
-       <li><a href="#favorites">MENU</a></li>
+        <li><a href="{% url 'index'%}" class="active">HOME</a></li>
+        <li><a href="#aboutAnchor">ABOUT</a></li>
+        <li><a href="">RESERVATIONS</a></li>
       </ul>
     </nav>
      <div class="logo-center">
@@ -563,9 +562,9 @@ html {
         </div>
     <nav class="nav-right">
       <ul>
-        <li><a href="#gallery">GALLERY</a></li>
-        <li><a href="{% url 'contact' %}#contact">CONTACT</a></li>
-         <li><a href="{% url 'reserve' %}#reservation">RESERVATIONS</a></li>
+        <li><a href="#favoritesAnchor">MENU</a></li>
+        <li><a href="#galleryAnchor">GALLERY</a></li>
+        <li><a href="#">CONTACT US</a></li>
       </ul>
     </nav>
     <div class="right-corner-logo">
@@ -577,12 +576,12 @@ html {
   <div class="header-row" style="margin-top: 20px; background:transparent;">
     <nav class="nav-combined">
       <ul>
-        <li><a href="#" class="active">HOME</a></li>
-         <li><a href="#about">ABOUT</a></li>
-        <li><a href="#favorites">MENU</a></li>
-        <li><a href="#gallery">GALLERY</a></li>
-        <li><a href="{% url 'contact' %}#contact">CONTACT</a></li>
-        <li><a href="{% url 'reserve' %}#reservation">RESERVATIONS</a></li>
+        <li><a href="{% url 'index'%}" class="active">HOME</a></li>
+        <li><a href="#aboutAnchor">ABOUT</a></li>
+        <li><a href="">RESERVATIONS</a></li>
+        <li><a href="#favoritesAnchor">MENU</a></li>
+        <li><a href="#galleryAnchor">GALLERY</a></li>
+        <li><a href="#">CONTACT US</a></li>
       </ul>
     </nav>
     <div class="right-corner-logo" onclick="navigateWithLoader2('{% url 'podium2' %}')">
@@ -596,7 +595,7 @@ html {
   <div class="logo-center-slide" id="slideshowLogo">
     <img id="logoslide"src="{% static 'images/branding5.png' %}" style="width: 300px;height: auto;" alt="Logo">
     <div style="text-align: center; margin-top: 40px;">
-  <a href="{% url 'reserve' %}" class="luxury-btn" style="z-index: 200;">Book a Table</a>
+  <a href="#" class="luxury-btn" style="z-index: 200;">Book a Table</a>
 </div>
   </div>
 
