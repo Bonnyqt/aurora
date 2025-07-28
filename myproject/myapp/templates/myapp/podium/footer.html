@@ -1,0 +1,133 @@
+{% load static %}
+<footer style="background-color: #0b0b0b; color: white; font-family: 'Playfair Display', serif; padding: 40px 20px;">
+  <div class="footer-container">
+    
+    <!-- Branding Section -->
+    <div class="footer-column">
+      <img src="{% static 'images/branding5.png' %}" alt="Aurora Logo" style="height: 90px; margin-bottom: 20px;">
+      <p style="font-size: 16px; margin: 0;">Tatler Dining Guide’s<br><strong>Best New Restaurant 2024</strong></p>
+    </div>
+
+    <!-- Contact + Social Section -->
+    <div class="footer-column">
+      <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; margin-bottom: 16px;">
+        <i class="fas fa-phone" style="color: #d6c3a4;"></i> 0917 104 3672<br>
+        <i class="fas fa-map-marker-alt" style="color: #d6c3a4;"></i> The Podium, Ortigas, Pasig
+      </p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/restaurantauroraph" target="_blank" title="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/_restaurantaurora/?hl=en" target="_blank" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Newsletter Subscription -->
+    <div class="footer-column">
+      <form action="#" method="POST" class="footer-form">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Copyright -->
+  <p class="footer-bottom">&copy; 2025 Aurora Restaurant. All rights reserved.</p>
+
+  <style>
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .footer-column {
+      flex: 1 1 250px;
+      text-align: center;
+    }
+
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .footer-socials a {
+      border: 2px solid #d6c3a4;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer-socials a i {
+      color: #d6c3a4;
+      font-size: 18px;
+    }
+
+    .footer-socials a:hover {
+      transform: scale(1.1);
+      border-color: #af7f10;
+    }
+
+    .footer-form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .footer-form input {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 30px;
+      width: 200px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .footer-form button {
+      background-color: #af7f10;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 20px;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .footer-form button:hover {
+      background-color: #d6c3a4;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      font-size: 12px;
+      font-family: 'Montserrat', sans-serif;
+      color: #999;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+      .footer-column {
+        text-align: center;
+      }
+    }
+  </style>
+</footer>

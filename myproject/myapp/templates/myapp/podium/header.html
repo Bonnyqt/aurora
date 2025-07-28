@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <title>Aurora</title>
 
    <style>
@@ -342,6 +343,44 @@
 .mobile-header {
   display: none;
 }
+/* === Desktop Defaults === */
+.slideshow-container {
+  height: 650px;
+}
+
+.slide img {
+  height: 650px;
+  object-fit: cover;
+  width: 100vw;
+}
+
+.slide-text {
+  font-size: 2.2rem;
+  padding: 0 16px;
+  width: 90vw;
+  max-width: 700px;
+}
+
+.logo-center-slide img {
+  width: 400px;
+  height: auto;
+}
+
+.logo-center-slide {
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.luxury-btn {
+  padding: 14px 34px;
+  font-size: 14px;
+}
+
+.sticky-logo img,
+.right-corner-logo img {
+  height: 48px;
+  width: auto;
+}
 
 /* Mobile Styles */
 @media screen and (max-width: 768px) {
@@ -519,7 +558,47 @@
   50% {
     filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
   }
+  
 }
+  .slideshow-container {
+    height: 400px;
+  }
+
+  .slide img {
+    height: 400px;
+    width: 100vw;
+    object-fit: cover;
+  }
+
+  .slide-text {
+    font-size: 1.4rem;
+    padding: 0 10px;
+    width: 95vw;
+  }
+
+  .logo-center-slide img {
+    width: 280px;
+  }
+
+  .logo-center-slide {
+    top: 48%;
+    transform: translate(-50%, -50%) scale(0.92);
+  }
+
+  .luxury-btn {
+    padding: 10px 24px;
+    font-size: 13px;
+  }
+
+  .burger {
+    font-size: 32px;
+    padding: 8px;
+    right: 16px;
+  }
+
+  .mobile-sidebar ul li {
+    margin: 18px 0;
+  }
   </style>
 </head>
 <body>

@@ -1,98 +1,185 @@
 {% load static %}
   <style>
-    .parent2{
-background: #f7f7f7;
-justify-content: center;
-text-align: center;
- align-items: center;
- padding: 30px;
-  height: 80vh;
-    }
-    .parent {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-     
-      font-family: sans-serif;
-      overflow: hidden;
-    }
 
-    .gallery-container {
-      width: 1600px;
-      height: 600px;
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      grid-template-rows: repeat(3, 1fr);
-      gap: 10px;
-      padding: 10px;
-      background: white;
-      box-sizing: border-box;
-    }
+.elegant-line-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: #2c1d18;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  margin-bottom: 20px;
+}
 
-    .gallery-item {
-      overflow: hidden;
-    }
+.elegant-line-text::before,
+.elegant-line-text::after {
+  content: "";
+  flex: 0.1;
+  height: 1px;
+  background: #2c1d18;
+  margin: 0 20px;
+  opacity: 0.5;
+}
 
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+.background-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 50px;
+  position: relative;
+  display: inline-block;
+  color: rgb(0, 0, 0);
+  z-index: 0;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
 
-    .item-1 { grid-column: span 3; grid-row: span 2; }
-    .item-2 { grid-column: span 3; grid-row: span 1; }
-    .item-3 { grid-column: span 3; grid-row: span 1; }
-    .item-4 { grid-column: span 2; grid-row: span 1; }
-    .item-5 { grid-column: span 2; grid-row: span 1; }
-    .item-6 { grid-column: span 2; grid-row: span 1; }
-     @media (max-width: 768px) {
-    .gallery-container {
-      width: 100%;
-      height: auto;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: auto;
-    }
+.background-text::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 0;
+  background: linear-gradient(90deg, #000000 0%, #fffbe6 100%);
+  border-radius: 2px;
+  transition: width 0.5s cubic-bezier(.4,2,.6,1);
+  z-index: 1;
+}
 
-    .gallery-item {
-      grid-column: span 1 !important;
-      grid-row: span 1 !important;
-      height: 200px;
-    }
+.parent2:hover .background-text::after {
+  width: 100%;
+}
 
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+.parent2 {
+  background: #f7f7f7;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 30px;
+  min-height: 80vh; /* Changed from height to min-height */
+}
 
-    /* Make only item-3 smaller */
-    .item-3 {
-      margin-top: 70px;
-      height: 50px !important;
-    }
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  overflow: hidden;
+  width: 100%;
+}
 
-    .item-3 img {
-      width: 100% !important;
-      height: 100% !important;
-      margin-left: 0 !important;
-    }
+.gallery-container {
+  width: 90%;
+  max-width: 1400px;
+  height: 600px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Changed from 6 to 4 columns */
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+  padding: 10px;
+  background: white;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.gallery-item img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  display: block;
+  margin: 0 !important;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Updated grid positioning to fit properly */
+.item-1 { grid-column: 1 / 3; grid-row: 1 / 3; } /* Large image: spans 2 cols × 2 rows */
+.item-2 { grid-column: 3 / 5; grid-row: 1 / 2; } /* Top right */
+.item-3 { grid-column: 3 / 5; grid-row: 2 / 3; } /* Middle right */
+.item-4 { grid-column: 1 / 2; grid-row: 3 / 4; } /* Bottom left */
+.item-5 { grid-column: 2 / 3; grid-row: 3 / 4; } /* Bottom center-left */
+.item-6 { grid-column: 3 / 5; grid-row: 3 / 4; } /* Bottom right */
+
+@media (max-width: 1200px) {
+  .gallery-container {
+    width: 95%;
+    height: 500px;
   }
+}
+
+@media (max-width: 768px) {
+  .parent2 {
+    padding: 20px;
+  }
+  
+  .background-text {
+    font-size: 35px !important;
+  }
+  
+  .gallery-container {
+    width: 100%;
+    height: auto;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 200px);
+    gap: 8px;
+  }
+
+  .gallery-item {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+
+  /* Mobile layout positioning */
+  .item-1 { grid-column: 1 / 3; grid-row: 1 / 2; }
+  .item-2 { grid-column: 1 / 2; grid-row: 2 / 3; }
+  .item-3 { grid-column: 2 / 3; grid-row: 2 / 3; }
+  .item-4 { grid-column: 1 / 2; grid-row: 3 / 4; }
+  .item-5 { grid-column: 2 / 3; grid-row: 3 / 4; }
+  .item-6 { grid-column: 1 / 3; grid-row: 4 / 5; }
+}
   </style>
 </head>
 <body>
-  <div class="parent2">
+  <div class="parent2" id="gallery"> 
   <div class="elegant-line-text">GALLERY</div>
   <h1 class="background-text" style="font-family: 'Playfair Display', serif; font-size: 50px;">DISCOVER AMBIANCE</h1>
 <div class="parent">
 <div class="gallery-container">
-  
-  <div class="gallery-item item-1"><img src="https://scontent.fmnl14-1.fna.fbcdn.net/v/t39.30808-6/489822689_654455527343534_821614516300584445_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=uuR0EZhotjEQ7kNvwHMqFfq&_nc_oc=AdnT9qeVAGfLpjsdBNEukcsTvRKl3Ct7JYkDudivVF5z3cVIqSir8Oxf-LrcuJN34Rg&_nc_zt=23&_nc_ht=scontent.fmnl14-1.fna&_nc_gid=-o6ZqRsvI2HNsMcEm6WTzQ&oh=00_AfOnH7j4aCAyw5xl3NLfZsmfq-Zqwp_gkhHuVc6N-2QnFg&oe=6863D978" alt="img1"></div>
-  <div class="gallery-item item-2"><img src="https://scontent.fmnl14-1.fna.fbcdn.net/v/t51.75761-15/471825128_17974730384798921_5956543653676864578_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=-eD0YjIWi_oQ7kNvwHnPd0k&_nc_oc=AdklZJ1rCjjBUSQuqIsh-OkZYCTIrTE_NlOB2dcjoyZVT0cKV3fe8O2wNj5RAOTTe7s&_nc_zt=23&_nc_ht=scontent.fmnl14-1.fna&_nc_gid=t_HmBBcqtY-I42aWp4bupA&oh=00_AfMGasim9r4n0iwIaeQ9rb6vAq7pGdqAqowiQokMoZ1aaw&oe=6863CD12" alt="img2"></div>
-  <div class="gallery-item item-3"><img src="{% static 'images/branding4.png'%}" style="height: auto;width: 630px; margin-left:80px;" alt="img3"></div>
-  <div class="gallery-item item-4"><img src="https://scontent.fmnl14-2.fna.fbcdn.net/v/t39.30808-6/482322683_631159639673123_7319806752019655407_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Wp2xPMTHd6QQ7kNvwEBaeD5&_nc_oc=AdlF9J4VkVVfxkv9YVsGG1-iE0n_hHyuH8zLyfwqZAx1bXqfPxVbvs3LAkxjBnrwnrI&_nc_zt=23&_nc_ht=scontent.fmnl14-2.fna&_nc_gid=MnNhuO0Awn9ZxOhYMXqF6A&oh=00_AfMuPQB3XGKgd4dHRi_yOovq-Eb3sGa-bRE8FhWiPasiLw&oe=6863F983" alt="img4"></div>
-  <div class="gallery-item item-5"><img src="https://scontent.fmnl14-2.fna.fbcdn.net/v/t39.30808-6/472307555_17975778623798921_3157123321095186562_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Zq_kqkxKqYYQ7kNvwEsz_3Z&_nc_oc=AdnD33GyL12p-TGxI5SlQFZfUDsLdkufsSKiY8vip_2Bcy89Mlmg1aHXjx2CKB9TnZg&_nc_zt=23&_nc_ht=scontent.fmnl14-2.fna&_nc_gid=InU12Q0vEpcAf_8y1m-nvQ&oh=00_AfPw-26XY5CkqkjxCtrspft2cmzQN-catE8yFYPQYWJo5Q&oe=6863F191" alt="img5"></div>
-  <div class="gallery-item item-6"><img src="https://scontent.fmnl14-1.fna.fbcdn.net/v/t39.30808-6/476209646_605077202281367_670590598643603662_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=3JpLm6-95MMQ7kNvwEKv6-_&_nc_oc=Adn4yoF-s0r3NchMKV0jAbRyMXwF62XWzQOCqx0D7OcXbNjnfSb90X0ZC-aZfce745k&_nc_zt=23&_nc_ht=scontent.fmnl14-1.fna&_nc_gid=CmcdPq1SojjgdkZjBICZpA&oh=00_AfMkf94EDQigvvxit6HUXQTRfLbktxWXHqq_ph3mvAx16A&oe=6863E018" alt="img6"></div>
-</div>
+  <div class="gallery-item item-1">
+    <img src="https://scontent.fmnl14-1.fna.fbcdn.net/v/t39.30808-6/489822689_654455527343534_821614516300584445_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGGF_e67l1S_y4Ux-R9955eiBg8m9x8LGyIGDyb3HwsbPIqmO0J9vs6lFJk5ONYqoi15YbXTLGMgmw-fPLgYRbW&_nc_ohc=pTm6CqTU21cQ7kNvwF2K_TG&_nc_oc=AdnyCjjsJ6N4w1Q5YGE5KiyO21ZbrxlD1oajj1MSfnnvo5Bu_Y0_A_12IYhlnmjoDb4&_nc_zt=23&_nc_ht=scontent.fmnl14-1.fna&_nc_gid=3roPqBOFANJ7cCn5URE7sQ&oh=00_AfSGTbp7XYMBUkt4BIn0ZitE3--Beck_gY8VHmkjE8pa7g&oe=68850738" alt="Restaurant Interior">
+  </div>
+  <div class="gallery-item item-2">
+    <img src="{% static 'images/gallery1.png'%}" alt="Gallery Image">
+  </div>
+  <div class="gallery-item item-3">
+    <img src="{% static 'images/branding4.png'%}" alt="Aurora Branding">
+  </div>
+  <div class="gallery-item item-4">
+    <img src="https://scontent.fmnl14-2.fna.fbcdn.net/v/t51.75761-15/470166659_17972971403798921_1403027412722832302_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeExL7NHwU4xJ6PSncX26dxVDgUz7LcExpAOBTPstwTGkJpWYbXoqvlMp6vq6fV1lqAYo9oLrzEZEVUrhn0RDi7C&_nc_ohc=0s5nQWXcArMQ7kNvwHkq8eZ&_nc_oc=Adk56K63I0xTrYM80DnLPxvHvIMB9GFU8SlR2XlbJptlUYiqi_sIGotfA0fw5PnUpjQ&_nc_zt=23&_nc_ht=scontent.fmnl14-2.fna&_nc_gid=MYvgSYrsQklo1qnreHgWrw&oh=00_AfSxAFhPtwDK6U_n4tKiir5yfiMFoehwekrBiFHcCaIhSQ&oe=6884EA31" alt="Dining Experience">
+  </div>
+  <div class="gallery-item item-5">
+    <img src="https://scontent.fmnl14-1.fna.fbcdn.net/v/t51.75761-15/468007279_17970470195798921_2413687591645669651_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFYhgMiuQfIrUgIKrzF-EZqPRDvAV-XDUA9EO8BX5cNQFedeq-InmNtg2Hu5SoRYZYObW1JrkC-JB6XmAh-wsQo&_nc_ohc=KzA9hcOH-n0Q7kNvwHfVmvp&_nc_oc=Adlv5QFd1Sxl-cBeD8DAUwfNOCKExgQSb8wOS6HDB8qmFLmTyuVr3NOK-nMIGZU5HB8&_nc_zt=23&_nc_ht=scontent.fmnl14-1.fna&_nc_gid=qPbr6eHm-s3QKopwrI4B2A&oh=00_AfRcnoxjHl77uNSp4EiMEfgIIBFmPTZNf8tKdbFQ9s18Fg&oe=6884D601" alt="Fine Dining">
+  </div>
+  <div class="gallery-item item-6">
+    <img src="https://scontent.fmnl14-1.fna.fbcdn.net/v/t51.75761-15/468004030_17970470207798921_3286710836929502085_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEx1YHk95iCn3kZLXP2Z5noBcHHyJr8vDkFwcfImvy8ORZBfzQz7zk0a5mIcxla3keZgUJoon8w-aH6yJnvfbJP&_nc_ohc=8fWjWQ1rsm0Q7kNvwFO4jUm&_nc_oc=AdkNB8ENe7YJMzy2cn77mWlVguKUT6oymXWI3lTPHxDLkDg7p4chW3KcGYu9Dy3Fz4A&_nc_zt=23&_nc_ht=scontent.fmnl14-1.fna&_nc_gid=DQGABW9rcGQGvlMDqktNCg&oh=00_AfQVrUmPkRO8ZztUXuK84PrFZOWySoUV-RuE00GLD14juA&oe=6884FD27" alt="Restaurant Ambiance">
+  </div>
 </div>
 </div>
